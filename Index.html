@@ -1,1 +1,142 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobHub South Africa</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #17233b;
+    }
+    header {
+      background: #102b50;
+      color: white;
+      padding: 22px 16px;
+    }
+    .nav, main, footer {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo { font-size: 23px; font-weight: bold; }
+    .logo span { color: #56dfb0; }
+    .hero {
+      background: #16477a;
+      color: white;
+      padding: 48px 18px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 34px; margin: 0 0 14px; }
+    .hero p { line-height: 1.6; }
+    .search {
+      display: flex;
+      gap: 8px;
+      max-width: 650px;
+      margin: 24px auto 0;
+    }
+    input, select, button {
+      padding: 14px;
+      border: 1px solid #d5dce6;
+      border-radius: 7px;
+      font-size: 15px;
+    }
+    input { min-width: 0; flex: 1; }
+    button {
+      background: #12a878;
+      color: white;
+      border: 0;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    main { padding: 26px 16px; }
+    h2 { margin-top: 12px; }
+    .categories, .jobs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+    .category, .job {
+      background: white;
+      padding: 19px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px #17233b0d;
+    }
+    .category { font-weight: bold; }
+    .job h3 { margin: 0 0 10px; }
+    .muted { color: #65738a; font-size: 14px; }
+    .job button { margin-top: 10px; }
+    #status { margin: 16px 0; color: #16477a; }
+    footer {
+      padding: 25px 16px;
+      text-align: center;
+      color: #65738a;
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+      .search { flex-direction: column; }
+      .nav { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">JobHub <span>SA</span></div>
+      <div>Find your next opportunity</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Find a Job. Build Your Future.</h1>
+    <p>Explore opportunities and take the next step in your career across South Africa.</p>
+    <form class="search" id="searchForm">
+      <input id="keyword" type="search"
+        placeholder="Job title or keyword" aria-label="Job title">
+      <input id="location" type="search"
+        placeholder="City or province" aria-label="Location">
+      <button type="submit">Search Jobs</button>
+    </form>
+  </section>
+
+  <main>
+    <h2>Explore Job Categories</h2>
+    <div class="categories">
+      <div class="category">💻 IT & Technology</div>
+      <div class="category">🏥 Healthcare</div>
+      <div class="category">📊 Finance & Business</div>
+      <div class="category">🛍️ Retail & Sales</div>
+      <div class="category">🚚 Logistics & Driving</div>
+      <div class="category">🎓 Internships & Graduate Jobs</div>
+    </div>
+
+    <h2>Featured Opportunities</h2>
+    <p class="muted">These are sample listings to demonstrate the website.</p>
+    <div id="jobs" class="jobs"></div>
+    <p id="status" aria-live="polite"></p>
+  </main>
+
+  <footer>
+    <p>© 2026 JobHub South Africa</p>
+    <p>Helping South Africans discover career opportunities.</p>
+  </footer>
+
+  <script>
+    const jobs = [
+      {title:"Junior Web Developer", company:"Example Technology",
+       location:"Johannesburg, Gauteng", type:"Entry level"},
+      {title:"Administrative Assistant", company:"Example Business",
+       location:"Cape Town, Western Cape", type:"Full time"},
+      {title:"Retail Sales Assistant", company:"Example Retail",
+       location:"Durban, KwaZulu-Natal", type:"Full time"},
+      {title:"Graduate Finance Intern", company:"Example Finance",
+       location:"Pretoria, Gauteng", type:"Internship"},
